@@ -14,7 +14,7 @@ class QuestionController extends AbstractController
      */
     public function homepage()
     {
-        return new Response("great first page set up finally dude!!!");
+        return $this->render('questions/homepage.html.twig');
     }
 
     /**
@@ -22,6 +22,7 @@ class QuestionController extends AbstractController
      */
      public function show($slug)
      {
+        //dump();
         $answers = [
             'Make sure your cat is sitting purrrfectly still 🤣',
             'Honestly, I like furry shoes better than MY cat',
@@ -29,7 +30,7 @@ class QuestionController extends AbstractController
         ];
 
         return $this->render('questions/show.html.twig',[
-            'questions'=>ucwords(str_replace("-"," ",$slug)),
+            'question'=>ucwords(str_replace("-"," ",$slug)),
             'answers'=>$answers
         ]);
      }
